@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  float:right;
+  margin-right: 40px;
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <h3>Add a team member</h3>
+    <p style="color:#75a3a3;">Set email, location and role</p>
+
+    <form action="{% url 'add_form' %}" method="post">
+        {% csrf_token %}
+
+      <label for="infoLabel"><strong>Info</strong></label>
+      <input type="text" id="firstname" name="firstname">
+      <input type="text" id="lastname" name="lastname">
+      <input type="text" id="email" name="email">
+      <input type="text" id="phone" name="phone" >
+      <p><br>
+      <label for="role"><strong>Role</strong></label><br><br>
+
+      <label for="regular">Regular - Can't delete members</label>
+      <input type="radio" id="regular" name="role" value="Regular" checked="checked"><br>
+      <label for="admin">Admin - Can delete members</label>
+      <input type="radio" id="admin" name="role" value="Admin"><br>
+
+      <input type="Submit" value="Save">
+  </form>
+</div>
+</body>
+</html>

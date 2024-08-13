@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+ button {
+   background-color: #4da6ff;
+   position: absolute;
+   right: 10px;
+   font-size: 12px;
+   color:white;
+   vertical-align: middle;
+   width: 50px;
+   height: 25px;
+   line-height: 20px;
+   padding-bottom: 2px;
+   vertical-align: middle;
+  
+    border: 0px solid;
+   
+  }
+  img {
+        float: right;
+        margin-left: 20px;
+        margin-right: 40px;
+        margin-bottom: 40px;
+  }
+</style>
+</head>
+<body>
+  <a href="{% url 'add_form' %}" >
+    <img src="{% static 'plus.png' %}">
+  </a>
+<h3>Team Members</h3>
+<p style="color:#75a3a3;">You have {{members | length }} team members.</p>
+
+{% if members %}
+  {% for member in members %}
+    <a href="{% url 'edit_form' %}?id={{member.id}}">
+    <h3>{{ member.first_name }} {{ member.last_name }}
+    {% if member.role.name == 'Admin' %}
+      (admin)
+    {% endif %}
+    </h3>
+    </a>
+    <p>{{ member.phone }}</p>
+    <p>{{ member.email }}</p>
+    <hr>
+  {% endfor %}
+{% else %}
+    No team members.
+{% endif %}
+
+</body>
+</html>

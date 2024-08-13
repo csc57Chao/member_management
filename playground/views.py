@@ -1,4 +1,8 @@
 """
+Assumption:
+    There was a note said "Set email, location and role" in "Add Page", but the sample
+    page doesn't specify a field for location, so omit location input field for now.
+
 Improvements: 
     1) Add paginations, sorting/searching capability, and lazy loading members in the list page
     2) Better layouts (consistent and cohesive) for all the pages.
@@ -9,6 +13,7 @@ Improvements:
        the missing fields, better validation for email and phone number, and a generic error page when
        something unexpected happens like failed to retrieve members from the database.
     7) Better handling of some edge situation like trying to add the same member multiple times.
+    8) Playground was the name of my praticed application. Should provide a better name.
 
 """
 from django.shortcuts import render

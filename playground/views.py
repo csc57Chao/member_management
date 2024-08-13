@@ -1,3 +1,16 @@
+"""
+Improvements: 
+    1) Add paginations, sorting/searching capability, and lazy loading members in the list page
+    2) Better layouts (consistent and cohesive) for all the pages.
+    3) Add more test cases.
+    4) A confirmation dialog before deleting a member.
+    5) Hints/labels for different fields like first name, last name, etc.
+    6) Better error handling for things like: cannot submit without fill out all the fields, highlight
+       the missing fields, better validation for email and phone number, and a generic error page when
+       something unexpected happens like failed to retrieve members from the database.
+    7) Better handling of some edge situation like trying to add the same member multiple times.
+
+"""
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Member, Role, Team

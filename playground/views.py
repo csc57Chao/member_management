@@ -14,6 +14,7 @@ Improvements:
        something unexpected happens like failed to retrieve members from the database.
     7) Better handling of some edge situation like trying to add the same member multiple times.
     8) Playground was the name of my praticed application. Should provide a better name.
+    9) More comments and documentations.
 
 """
 from django.shortcuts import render
